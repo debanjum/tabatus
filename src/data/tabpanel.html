@@ -1,0 +1,53 @@
+<html ng-app="tabsapp">
+
+<head>
+    <link rel="stylesheet" href="external/bootstrap.min.css" type="text/css"/>
+    <link rel="stylesheet" href="external/angular-motion.min.css" type="text/css"/>
+    <style>
+    </style>
+</head>
+
+<body class="ng-cloak">
+
+<div class="container-fluid">
+
+    <div ng-controller="tabsctrl as ctrl">
+
+        <form role="form">
+            <div class="form-group" id="typeaheadcontainer">
+                <label><i class="fa fa-globe"></i>Activate Tab</label>
+                <input id="searchinput" class="form-control input-lg" data-template-url="item.html"
+                       ng-model="ctrl.selectedTab"
+                       bs-options="tab.title for tab in ctrl.tabs | byTitleAndUrl: $viewValue"
+                       placeholder="Filter tabs by title or url" bs-typeahead type="text"
+                       data-container="#typeaheadcontainer"
+                       bs-on-select="ctrl.activateTab" data-auto-select="true" data-animation="am-flip-x">
+            </div>
+        </form>
+
+    </div>
+
+</div>
+
+<script type="text/ng-template" id="item.html">
+    <ul tabindex="-1" class="typeahead dropdown-menu" ng-show="$isVisible()" role="select" broadcast-resize>
+        <li role="presentation" ng-repeat="match in $matches" ng-class="{active: $index == $activeIndex}">
+            <a role="menuitem" tabindex="-1" ng-click="$select($index, $event)">{{match.value.title}}
+                ({{match.value.url}})</a>
+        </li>
+    </ul>
+</script>
+
+<script src="external/jquery-2.2.4.min.js" type="text/javascript"></script>
+<script src="external/angular.min.js" type="text/javascript"></script>
+<script src="external/angular-animate.min.js" type="text/javascript"></script>
+<script src="external/lodash.min.js" type="text/javascript"></script>
+<script src="external/bootstrap.min.js" type="text/javascript"></script>
+<script src="external/angular-strap.min.js" type="text/javascript"></script>
+<script src="external/angular-strap.tpl.min.js" type="text/javascript"></script>
+<script src="contracts.js" type="text/javascript"></script>
+<script src="app.js" type="text/javascript"></script>
+
+</body>
+
+</html>
