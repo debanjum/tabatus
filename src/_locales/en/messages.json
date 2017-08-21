@@ -1,0 +1,8 @@
+{
+    "general": {
+      "message" : "General"
+    },
+    "option_disable_fuzzy_matching": {
+        "message": "Don't fuzzy match against page titles & urls"
+    }
+}

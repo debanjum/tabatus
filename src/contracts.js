@@ -1,5 +1,6 @@
-var ns = this.window ? (this.window.contracts = {}) : ({});
+let contracts = {};
 (function (ctx) {
+    ctx.Port = "PortTabatus";
     ctx.CollectTabs = "CollectTabs";
     ctx.CollectTabsCompleted = "CollectTabsCompleted";
     ctx.ActivateTab = "ActivateTab";
@@ -7,9 +8,5 @@ var ns = this.window ? (this.window.contracts = {}) : ({});
     ctx.ActivateTabFailed = "ActivateTabFailed";
     ctx.CloseMe = "CloseMe";
     ctx.Activated = "Activated";
-    ctx.HotkeyEnabled = "hotkeyEnabled";
-    ctx.HotkeyTogglePanel = "hotkeyTogglePanel";
-})(ns);
-
-var exports = module.exports = {};
-exports.contracts = ns;
+    ctx.OptionDisableFuzzyMatching = "optionDisableFuzzyMatching";
+})(contracts);
